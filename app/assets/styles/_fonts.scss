@@ -1,0 +1,39 @@
+// custom fonts
+
+@font-face {
+    font-family: 'pbs_kids_subheadbold';
+    src: url('fonts/pbskidssubhead-bold-webfont.eot');
+    src: url('fonts/pbskidssubhead-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pbskidssubhead-bold-webfont.woff') format('woff'),
+         url('fonts/pbskidssubhead-bold-webfont.ttf') format('truetype'),
+         url('fonts/pbskidssubhead-bold-webfont.svg#pbs_kids_subheadbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'pbs_kids_subheadregular';
+    src: url('fonts/pbskidssubhead-regular-webfont.eot');
+    src: url('fonts/pbskidssubhead-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pbskidssubhead-regular-webfont.woff') format('woff'),
+         url('fonts/pbskidssubhead-regular-webfont.ttf') format('truetype'),
+         url('fonts/pbskidssubhead-regular-webfont.svg#pbs_kids_subheadregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'pbs_kids_headline_condensedRg';
+    src: url('fonts/pbskids_headlinecondensed-reg-webfont.eot');
+    src: url('fonts/pbskids_headlinecondensed-reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pbskids_headlinecondensed-reg-webfont.woff') format('woff'),
+         url('fonts/pbskids_headlinecondensed-reg-webfont.ttf') format('truetype'),
+         url('fonts/pbskids_headlinecondensed-reg-webfont.svg#pbs_kids_headline_condensedRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

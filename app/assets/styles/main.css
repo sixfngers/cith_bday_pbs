@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'pbs_kids_subheadbold';
+  src: url("fonts/pbskidssubhead-bold-webfont.eot");
+  src: url("fonts/pbskidssubhead-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/pbskidssubhead-bold-webfont.woff") format("woff"), url("fonts/pbskidssubhead-bold-webfont.ttf") format("truetype"), url("fonts/pbskidssubhead-bold-webfont.svg#pbs_kids_subheadbold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'pbs_kids_subheadregular';
+  src: url("fonts/pbskidssubhead-regular-webfont.eot");
+  src: url("fonts/pbskidssubhead-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/pbskidssubhead-regular-webfont.woff") format("woff"), url("fonts/pbskidssubhead-regular-webfont.ttf") format("truetype"), url("fonts/pbskidssubhead-regular-webfont.svg#pbs_kids_subheadregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'pbs_kids_headline_condensedRg';
+  src: url("fonts/pbskids_headlinecondensed-reg-webfont.eot");
+  src: url("fonts/pbskids_headlinecondensed-reg-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/pbskids_headlinecondensed-reg-webfont.woff") format("woff"), url("fonts/pbskids_headlinecondensed-reg-webfont.ttf") format("truetype"), url("fonts/pbskids_headlinecondensed-reg-webfont.svg#pbs_kids_headline_condensedRg") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+  
+  
+body
+{
+	margin:0;
+	padding:0;
+	font-family:Arial,Helvetica,sans-serif;
+	background-color: #ec037b;
+}
+
+header, section, footer
+{
+	margin:0;
+	padding:0;
+	display:block;
+}
+
+#site-wrapper
+{
+  background-image: url("../../assets/images/bg_tile.jpg");
+  background-repeat: repeat-x;
+  min-width:1024px;
+  min-height:768px;
+}
+
+#header-wrapper
+{
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index: 2;
+
+}
+
+
+footer {
+  height: 225px;
+  width: 100%;
+  color: #888;
+  font-size: 11px;
+  z-index: 10;
+  text-align: center;
+  padding-top: 70px;
+  color: white;
+  font-family: "pbs_kids_subheadregular", Arial, sans-serif;
+  min-width: 1024px;
+}
+
+
+.footer-container
+{
+	background-color: #ec037b;
+  	top:670px;
+  	height: 300px;
+  	width: 100%;
+  	min-width:1024px;
+  	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	z-index:3;
+}
+
+
+#social
+{
+	position:relative;
+	top:6px;
+	width:100%;
+	height:35px;
+	min-width:1024px;
+	text-align: right;
+}
+
+
+.social_icon
+{
+display:inline;
+	margin-right: 8px;
+}
+
+#main-container
+{
+	position:absolute;
+	top:0;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	min-width:1024px;
+	min-height:670px;
+	background-image: url('../../assets/images/bg.jpg');
+	background-position: top;
+    background-repeat: no-repeat;
+    z-index:1;
+}
+
+
+#video-container
+{
+	position:absolute;
+	top:250px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	min-width:1024px;
+    z-index:5;
+}
+
+#cat-container
+{
+	position:absolute;
+	top:214px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	min-width:1024px;
+    z-index:4;
+}
+
+
+#banner
+{
+	margin-top:14px;
+	margin-right:504px;
+}
+
+
+#tunein
+{
+	margin-top:-142px;
+	margin-left:374px;
+}
+
+
+#kids-logo
+{
+	margin-top:2px;
+	margin-right:273px;
+}
+
+
+#knows-logo
+{
+	margin-top:10px;
+	margin-left:962px;
+}
+
+#cta
+{
+	margin-top:-80px;
+	margin-left:356px;
+}
+
+
+
+#cat-character
+{
+	margin-top:0px;
+	margin-left:-1024px;
+}
+
+
+
+#playerframe
+{
+	position:relative;
+	margin-top:-372px;
+	margin-left:0px;
+}
+
+
+#videoplayerholder
+{
+	margin-top:-60px;
+	margin-left:46px;
+}
+
+
+
+
+
