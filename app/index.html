@@ -10,9 +10,10 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!--<link rel="stylesheet" href="assets/styles/normalize.min.css">-->
+        <link rel="stylesheet" href="assets/styles/normalize.min.css">
         <link rel="stylesheet" href="assets/styles/main.css">
 
+        
         <script src="assets/scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -22,97 +23,140 @@
 
         <div id='site-wrapper'>
 
-        <div id="header-wrapper">
-            <header>
-                <div id="social">
+            <div id='initially-hidden-content'>
 
-                    <div class="social_icon">
-                        <a href='https://twitter.com/PBSKIDS' target="_blank"><img src='assets/images/social_twitter.jpg' /></a>
-                    </div>                   
+            <div id="header-wrapper">
+                <header>
+                    <div id="social">
 
-                    <div class="social_icon">
-                        <a href='https://www.facebook.com/PBSKIDS' target="_blank"><img src='assets/images/social_facebook.jpg' /></a>
+                        <div class="social_icon">
+                            <a href='https://twitter.com/PBSKIDS' target="_blank"><img src='assets/images/social_twitter.jpg' /></a>
+                        </div>                   
+
+                        <div class="social_icon">
+                            <a href='https://www.facebook.com/PBSKIDS' target="_blank"><img src='assets/images/social_facebook.jpg' /></a>
+                        </div>
+
+                        <div class="social_icon">
+                            <a href='http://www.pinterest.com/pbsofficial/we-are-family/' target="_blank"><img src='assets/images/social_pintrest.jpg' /></a>
+                        </div>
+
+                        <div class="social_icon">
+                            <a href='http://instagram.com/pbskids' target="_blank"><img src='assets/images/social_instagram.jpg' /></a>
+                        </div>
+
+                         <div class="social_icon">
+                            <a href='https://plus.google.com/+PBSKIDS' target="_blank"><img src='assets/images/social_gplus.jpg'/></a>
+                        </div>
+
+                    </div>
+                </header>
+            </div>
+
+           
+
+            <div id="main-container">
+                    <div id='banner'><img src='assets/images/catabration_banner.png' /></div>
+                    <div id='tunein'><img src='assets/images/tunein.png' /></div>
+                    <div id='kids-logo'><img src='assets/images/pbs_logo.png' /></div>
+
+                    <div id='knows-logo'><img src='assets/images/cith_knows_logo.png' /></div>
+            </div>
+
+            <div id="cat-container">
+                <div id="cat-character">
+                    <img src="assets/images/cat_in_hat_character1.png" />
+                </div>
+            </div>
+
+            <div id="rollover-balloons">
+                <div id="banner-balloon0" class="balloon-drawing"></div>
+                <div id="banner-balloon1" class="balloon-drawing"></div>
+                <div id="banner-balloon3" class="balloon-drawing"></div>
+            </div>
+
+            <div id="video-container">
+                
+                <div id='videoplayerholder'>
+                    <video id='videoelement' width="650" height="366" preload="auto">
+                        <source src="assets/videos/big_buck_bunny.m4v"  type="video/m4v">
+                        <source src="assets/videos/big_buck_bunny.mp4"  type="video/mp4">
+                        <source src="assets/videos/big_buck_bunny.ogv" type="video/ogg">
+                        <source src="assets/images/videos/big_buck_bunny.webm" type="video/webm">
+
+                        <object class="aligncenter" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="650" height="360">
+                            <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
+                            <param name="allowFullScreen" value="true">
+                            <param name="wmode" value="transparent">
+                            <param name="flashvars" value="config={'clip': {'url':'http://davidcaneso.com/dev/clients/bpg/video/videos/big_buck_bunny.mp4','autoPlay':false, 'autoBuffering':true }}">
+                            <p>Your browser does not support video...</p>
+                        </object>
+                    </video>
+                    <!--
+                    <div id='play-button'><img src='assets/images/play_button.png' /></div>
+                    -->
+                    <div id='playerframe'><img src='assets/images/video_frame.png' /></div>
+                </div>
+               
+               <div id="links">
+                    <div class="link-container">
+                        <div class="pre-link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
+                        <a href="http://www.pbs.org/parents/catinthehat/" target="_blank" class="pbslink">FOR PARENTS</a>
+                        <div class="link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
                     </div>
 
-                    <div class="social_icon">
-                        <a href='http://www.pinterest.com/pbsofficial/we-are-family/' target="_blank"><img src='assets/images/social_pintrest.jpg' /></a>
+                    <div class="link-container">
+                        <div class="pre-link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
+                        <a href="pbskids.org/catinthehat/games/marblecoaster/" target="_blank" class="pbslink">PLAY GAME</a>
+                        <div class="link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
                     </div>
 
-                    <div class="social_icon">
-                        <a href='http://instagram.com/pbskids' target="_blank"><img src='assets/images/social_instagram.jpg' /></a>
-                    </div>
-
-                     <div class="social_icon">
-                        <a href='https://plus.google.com/+PBSKIDS' target="_blank"><img src='assets/images/social_gplus.jpg'/></a>
+                    <div class="link-container">
+                        <div class="pre-link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
+                        <a href="http://catinthehat.shop.pbskids.org/" target="_blank" class="pbslink">PBS KIDS SHOP</a>
+                        <div class="link-arrow"><img src="assets/images/link_arrow.jpg" /></div>
                     </div>
 
                 </div>
-            </header>
-        </div>
 
-       
+                <div id='cta'><a href="http://www.pbs.org/tv_schedules/" target="_blank"><img src='assets/images/cta_box.jpg' /></a></div>
 
-        <div id="main-container">
-                <div id='banner'><img src='assets/images/catabration_banner.png' /></div>
-                <div id='tunein'><img src='assets/images/tunein.png' /></div>
-                <div id='kids-logo'><img src='assets/images/pbs_logo.png' /></div>
-                <div id='cta'><img src='assets/images/cta_box.jpg' /></div>
-
-                <div id='knows-logo'><img src='assets/images/cith_knows_logo.png' /></div>
-        </div>
-
-        <div id="cat-container">
-            <div id="cat-character">
-                <img src="assets/images/cat_in_hat_character1.png" />
+            </div>
+            <div class="footer-container">
+                 <footer>
+                    <p>THE PBS KIDS LOGO IS A REGISTERED MARK OF THE PUBLIC BROADCASTING SERVICE. CAT IN THE HAT &copy; &amp; TM DSE.</p>
+                </footer>
             </div>
         </div>
 
-        <div id="video-container">
-            <div id='videoplayerholder'>
-                <video id='videoelement' width="650" height="366" preload="auto">
-                    <source src="assets/videos/big_buck_bunny.m4v"  type="video/m4v">
-                    <source src="assets/videos/big_buck_bunny.mp4"  type="video/mp4">
-                    <source src="assets/videos/big_buck_bunny.ogv" type="video/ogg">
-                    <source src="assets/images/videos/big_buck_bunny.webm" type="video/webm">
+            <div id="balloon-container">
+                <div id="balloon-wrapper">
+                    <div id="balloon0" class="balloon-drawing"></div>
+                    <div id="balloon1" class="balloon-drawing"></div>
+                    <div id="balloon2" class="balloon-drawing"></div>
+                    <div id="balloon3" class="balloon-drawing"></div>
+                    <div id="balloon4" class="balloon-drawing"></div>
+                    <div id="balloon5" class="balloon-drawing"></div>
+                    <div id="balloon6" class="balloon-drawing"></div>
+                    <div id="balloon7" class="balloon-drawing"></div>
+                    <div id="balloon8" class="balloon-drawing"></div>
 
-                    <object class="aligncenter" type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="650" height="360">
-                        <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-                        <param name="allowFullScreen" value="true">
-                        <param name="wmode" value="transparent">
-                        <param name="flashvars" value="config={'clip': {'url':'http://davidcaneso.com/dev/clients/bpg/video/videos/big_buck_bunny.mp4','autoPlay':false, 'autoBuffering':true }}">
-                        <p>Your browser does not support video...</p>
-                    </object>
-                </video>
-                <div id='playerframe'><img src='assets/images/video_frame.png' /></div>
-            </div>
-           
-            <div>
-                <a href="">FOR PARENTS</a>
-            </div>
+                    <div id="intro-button">
+                        <div id="intro-text">
+                            <img src="assets/images/intro_text.png" />
+                        </div>
+                    </div>
 
-            <div>
-                <a href="">PLAY GAME</a>
-            </div>
+                </div>
 
-            <div>
-                <a href="">PBS KIDS SHOP</a>
             </div>
 
         </div>
-        <div class="footer-container">
-             <footer>
-                <p>The PBS KIDS logo is a registered mark of the Public Broadcasting Service. Cat in the Hat &copy; &amp; TM DSE.</p>
-            </footer>
-        </div>
-
-        
-
-    </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="assets/scripts/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
-        <script src="assets/scripts/main.js"></script>
+        <script data-main="assets/scripts/main.js" src="assets/scripts/vendor/require.js"></script>
 
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
