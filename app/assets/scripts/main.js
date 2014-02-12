@@ -1,4 +1,4 @@
-require([ "./vendor/raphael" ], function (Raphael)
+require([ "./vendor/raphael-min" ], function (Raphael)
 {
 
 	var balloonList = new Array();
@@ -480,11 +480,13 @@ require([ "./vendor/raphael" ], function (Raphael)
 		function()
 		{
 			$(this).addClass("rotation-loop");
+			$(this).children("a").children(".cta-image").css("margin-top", "-27px");
   		}
 
   		,function()
   		{
 			$(this).removeClass("rotation-loop");
+			$(this).children("a").children(".cta-image").css("margin-top", "0");
   		}
   	);
 
@@ -493,11 +495,21 @@ require([ "./vendor/raphael" ], function (Raphael)
 		{
 			$( this ).children( ".knows-logo-image" ).animate({"top": "200px"}, 100);
 			
+			// var minColor = 0;
+			// var maxColor = 2;
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1000, 1500));
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(700, 2000));
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
+
+			var total = randomInRange(2, 3);
+
 			var minColor = 0;
 			var maxColor = 2;
-			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1000, 1500));
-			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(700, 2000));
-			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
+
+			for(var i = 0; i<total; i++)
+			{
+				drawFloatingUpBalloon("hover-balloon-container", 228, 230, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
+			}
   		}
 
   		,function()
@@ -509,15 +521,22 @@ require([ "./vendor/raphael" ], function (Raphael)
   	$( ".no-touch .cat-link" ).hover(
 		function()
 		{
+			var total = randomInRange(2, 5);
+
 			var minColor = 0;
 			var maxColor = 2;
 
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
-			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
+			for(var i = 0; i<total; i++)
+			{
+				drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));	
+			}
+
+			
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
   		}
 
   		,function()
