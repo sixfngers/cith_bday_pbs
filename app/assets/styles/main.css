@@ -106,6 +106,14 @@ header, section, footer
 	z-index:4;
 }
 
+
+#cat-balloons
+{
+	position:absolute;
+	left:50%;
+	z-index:2;
+}
+
 #main-content
 {
 	position:absolute;
@@ -139,6 +147,27 @@ header, section, footer
 	position:relative;
 	left:-520px;
 }
+
+#cat-hover-balloons
+{
+	position:relative;
+	left:-730px;
+}
+
+#cat-balloons-svg
+{
+	width:418px;
+	height:670px;
+	/*background-color: #ff0000;*/
+}
+
+#cat-balloons-svg svg
+{
+	position:absolute !important;
+	top:0;
+	left:0;
+}
+
 
 #social-link-container
 {

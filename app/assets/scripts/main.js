@@ -152,11 +152,8 @@ require([ "./vendor/raphael" ], function (Raphael)
 	}
 
 
-	function drawFloatingUpBalloon(containerName, balloonColor, balloonScale, floatOriginX, floatOriginY, time)
+	function drawFloatingUpBalloon(containerName, paperWidth, paperHeight, boundsLeft, boundsRight, balloonColor, balloonScale, floatOriginX, floatOriginY, floatCeiling, time)
 	{
-		var paperWidth = 228;
-		var paperHeight = 220;
-
 		var container = document.getElementById(containerName);
     	var paper = Raphael(container, paperWidth, paperHeight);
 
@@ -179,19 +176,19 @@ require([ "./vendor/raphael" ], function (Raphael)
 
     	balloonElements.transform(endXString+scaleString);
 
-		floatUp(balloonElements, floatOriginX, paperHeight, paperWidth, scaleString, time);			
+		floatUp(balloonElements, floatOriginX, paperHeight, boundsLeft, boundsRight, paperWidth, scaleString, floatCeiling, time);			
 	}
 
 
-	function floatUp(set, floatOriginX, floatOriginY, radius, scaleString, time)
+	function floatUp(set, floatOriginX, floatOriginY, boundsLeft, boundsRight, radius, scaleString, floatCeiling, time)
 	{
-		var boundsLeft = 0;
-		var boundsRight = 180;
+		var boundsLeft = boundsLeft;
+		var boundsRight = boundsRight;
 		var boundsTop = (floatOriginY - (radius * .5));
 		var boundsBottom = (floatOriginY + (radius * .5));
 
 		var endX = randomInRange(boundsLeft, boundsRight);
-		var endY = -220;
+		var endY = floatCeiling;
 		var endXString = "t"+String(endX)+","+String(endY);
 
   //   	set.animate({transform:endXString+","+scaleString}, randomInRange(2000,3000), ">", function(){
@@ -241,11 +238,6 @@ require([ "./vendor/raphael" ], function (Raphael)
 	// console.log(balloonList);
 
 
-	//drawFloatingUpBalloon("hover-balloon-container", '#99cf16', randomInRange(1, 1.6), randomInRange(100, 900), 500);
-	//drawFloatingUpBalloon("banner-balloon1", '#ff403f', 2.6, 420, 500, true);
-	//drawFloatingUpBalloon("banner-balloon2", '#0079c1', 2.6, 420, 500, true);
-
-	
 	document.getElementById("initially-hidden-content").style.display = "block";
 	document.getElementById("intro-text").style.visibility = "visible";
 
@@ -503,9 +495,9 @@ require([ "./vendor/raphael" ], function (Raphael)
 			
 			var minColor = 0;
 			var maxColor = 2;
-			drawFloatingUpBalloon("hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(1000, 1500));
-			drawFloatingUpBalloon("hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(700, 2000));
-			drawFloatingUpBalloon("hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(1400, 2500));
+			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1000, 1500));
+			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(700, 2000));
+			drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
   		}
 
   		,function()
@@ -519,9 +511,13 @@ require([ "./vendor/raphael" ], function (Raphael)
 		{
 			var minColor = 0;
 			var maxColor = 2;
-			drawFloatingUpBalloon("cat-hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(1000, 1500));
-			drawFloatingUpBalloon("cat-hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(700, 2000));
-			drawFloatingUpBalloon("cat-hover-balloon-container", balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 500), randomInRange(1400, 2500));
+
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
   		}
 
   		,function()
