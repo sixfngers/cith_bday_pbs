@@ -1,13 +1,13 @@
-require([ "./vendor/raphael" ], function (Raphael)
+require([ "./vendor/raphael-min" ], function (Raphael)
 {
 
 	var balloonList = new Array();
 
 	var balloonColors = new Array()
-		balloonColors[0] = "#44c8f5";
-		balloonColors[1] = "#ff403f";
-		balloonColors[2] = "#99cf16";
-		balloonColors[3] = "#0079c1";
+		balloonColors[0] = "#ff403f";
+		balloonColors[1] = "#99cf16";
+		balloonColors[2] = "#0079c1";
+		balloonColors[3] = "#44c8f5";
 
 	function randomInRange(min, max)
 	{
@@ -152,11 +152,8 @@ require([ "./vendor/raphael" ], function (Raphael)
 	}
 
 
-	function drawFloatingUpBalloon(containerName, balloonColor, balloonScale, floatOriginX, floatOriginY)
+	function drawFloatingUpBalloon(containerName, paperWidth, paperHeight, boundsLeft, boundsRight, balloonColor, balloonScale, floatOriginX, floatOriginY, floatCeiling, time)
 	{
-		var paperWidth = 1024;
-		var paperHeight = 300;
-
 		var container = document.getElementById(containerName);
     	var paper = Raphael(container, paperWidth, paperHeight);
 
@@ -174,58 +171,79 @@ require([ "./vendor/raphael" ], function (Raphael)
 			balloonElements.push(balloonKnot);
 			balloonElements.push(balloonString);
 		
-		
 		var endXString = "t"+String(floatOriginX)+","+String(floatOriginY);
 		var scaleString = "s"+String(balloonScale)+","+String(balloonScale)+",50, 50";
 
     	balloonElements.transform(endXString+scaleString);
 
-		floatUp(balloonElements, floatOriginX, -paperHeight, 50, scaleString);			
+		floatUp(balloonElements, floatOriginX, paperHeight, boundsLeft, boundsRight, paperWidth, scaleString, floatCeiling, time);			
 	}
 
 
-	function floatUp(set, floatOriginX, floatOriginY, radius, scaleString)
+	function floatUp(set, floatOriginX, floatOriginY, boundsLeft, boundsRight, radius, scaleString, floatCeiling, time)
 	{
-		var boundsLeft = (floatOriginX - (radius * .5));
-		var boundsRight = (floatOriginX + (radius * .5));
+		var boundsLeft = boundsLeft;
+		var boundsRight = boundsRight;
 		var boundsTop = (floatOriginY - (radius * .5));
 		var boundsBottom = (floatOriginY + (radius * .5));
 
 		var endX = randomInRange(boundsLeft, boundsRight);
-		var endY = -200;
+		var endY = floatCeiling;
 		var endXString = "t"+String(endX)+","+String(endY);
 
-		
+  //   	set.animate({transform:endXString+","+scaleString}, randomInRange(2000,3000), ">", function(){
+		// 	set.paper.clear();
+		// });
 
-    	set.animate({transform:endXString+","+scaleString}, randomInRange(2000,5000), "<>", function(){
-			set.paper.clear();
+		// var anim = Raphael.animation({transform:endXString+","+scaleString}, time, ">", function(){destroyBalloon(set)});
+		// 	anim.delay = 500;
+
+		// set.animate(anim);
+
+
+		//set.animate(anim.delay(randomInRange(0, 500))); // run the given animation after 500 ms
+
+		set.animate({transform:endXString+","+scaleString}, time, ">", function(){
+			destroyBalloon(this);
 		});
 	}
 
-	drawBalloon("balloon0", balloonColors[0], 2, 150, 0, false);
-	drawBalloon("balloon1", balloonColors[1], 1.6, 600, 90, false);
-	drawBalloon("balloon2", balloonColors[2], 2.2, 400, 120, false);
-	drawBalloon("balloon3", balloonColors[2], 2.4, 884, 60, false);
-	drawBalloon("balloon4", balloonColors[3], 2.2, 190, 380, true);
-	drawBalloon("balloon5", balloonColors[3], 3.2, 800, 380, true);
-	drawBalloon("balloon6", balloonColors[2], 1.4, 120, 600, true);
-	drawBalloon("balloon7", balloonColors[1], 2.2, 900, 160, true);
-	drawBalloon("balloon8", balloonColors[1], 2.6, 420, 500, true);
+	function destroyBalloon(element)
+  	{
+  		//console.log(element);
+  		element.items[0].remove();
+        element.items[1].remove();
+        element.items[2].remove();
+
+        element.paper.canvas.parentNode.removeChild(element.paper.canvas);
+  	}
+
+
+
+
+
+
+
+
+	drawBalloon("balloon0", balloonColors[3], 2, 150, 0, false);
+	drawBalloon("balloon1", balloonColors[0], 1.6, 600, 90, false);
+	drawBalloon("balloon2", balloonColors[1], 2.2, 400, 120, false);
+	drawBalloon("balloon3", balloonColors[1], 2.4, 884, 60, false);
+	drawBalloon("balloon4", balloonColors[2], 2.2, 190, 380, true);
+	drawBalloon("balloon5", balloonColors[2], 3.2, 800, 380, true);
+	drawBalloon("balloon6", balloonColors[1], 1.4, 120, 600, true);
+	drawBalloon("balloon7", balloonColors[0], 2.2, 900, 160, true);
+	drawBalloon("balloon8", balloonColors[0], 2.6, 420, 500, true);
 
 	// console.log(balloonList);
 
 
-	//drawFloatingUpBalloon("hover-balloon-container", '#99cf16', randomInRange(1, 1.6), randomInRange(100, 900), 500);
-	//drawFloatingUpBalloon("banner-balloon1", '#ff403f', 2.6, 420, 500, true);
-	//drawFloatingUpBalloon("banner-balloon2", '#0079c1', 2.6, 420, 500, true);
-
-	
 	document.getElementById("initially-hidden-content").style.display = "block";
 	document.getElementById("intro-text").style.visibility = "visible";
 
 	var toPop = -1;
 	var popperButton = document.getElementById('intro-button');
-	popperButton.addEventListener('click',incrementPop,false);
+	popperButton.addEventListener('click',startPopChain,false);
 
 	var balloonsToPop = new Array();
 		// balloonsToPop[0] = new Array("balloon4", balloonList[7]);
@@ -235,18 +253,32 @@ require([ "./vendor/raphael" ], function (Raphael)
 		// balloonsToPop[4] = new Array("balloon-container");
 		
 
-		balloonsToPop[0] = new Array(balloonList[4], balloonList[7]);
-		balloonsToPop[1] = new Array(balloonList[0], balloonList[6]);
-		balloonsToPop[2] = new Array(balloonList[1], balloonList[3]);
-		balloonsToPop[3] = new Array(balloonList[2], balloonList[5], balloonList[8], "intro-button");
-		balloonsToPop[4] = new Array("balloon-container");
+		balloonsToPop[0] = new Array(balloonList[4]);
+		balloonsToPop[1] = new Array(balloonList[7]);
+		balloonsToPop[2] = new Array(balloonList[0]);
+		balloonsToPop[3] = new Array(balloonList[6]);
+		balloonsToPop[4] = new Array(balloonList[1]);
+		balloonsToPop[5] = new Array(balloonList[8]);
+		balloonsToPop[6] = new Array(balloonList[2]);
+		balloonsToPop[7] = new Array(balloonList[5]);
+		balloonsToPop[8] = new Array(balloonList[3], "intro-button");
+		balloonsToPop[9] = new Array("balloon-container");
 
 		// for quick testing cause its annoying popping the balloons
 		// balloonsToPop[0] = new Array("balloon-container");
+
+
+	function startPopChain()
+	{
+		popperButton.removeEventListener('click',startPopChain,false);
+		clearInterval(introInterval);
+		var introInterval = setInterval(incrementPop, 100);
+	}
 	
 	
 	function incrementPop()
 	{
+
 		toPop++;
 		var last = Object.size(balloonsToPop);
 
@@ -303,7 +335,9 @@ require([ "./vendor/raphael" ], function (Raphael)
 	};
 
 
-	var introInterval = setInterval(incrementPop, 1500);
+	//var introInterval = setInterval(incrementPop, 1500);
+	var introInterval = setInterval(startPopChain, 5000);
+
 
 
 
@@ -401,12 +435,12 @@ require([ "./vendor/raphael" ], function (Raphael)
 		function()
 		{
 			
-			$( this ).children( ".social_hover" ).animate({top: "8px"}, 300);
+			$( this ).children( ".social_hover" ).animate({top: "8px", "opacity":"1"}, 300);
 		}
 
 		,function()
   		{
-  			$( this ).children( ".social_hover" ).animate({top: "0px"}, 300);
+  			$( this ).children( ".social_hover" ).animate({top: "0px", "opacity":"0"}, 300);
   		}
   	);
 
@@ -446,15 +480,69 @@ require([ "./vendor/raphael" ], function (Raphael)
 		function()
 		{
 			$(this).addClass("rotation-loop");
-			//drawFloatingUpBalloon("hover-balloon-container", balloonColors[randomInRange(0, 4)], randomInRange(1, 1.6), randomInRange(100, 900), 500);
+			$(this).children("a").children(".cta-image").css("margin-top", "-27px");
   		}
 
   		,function()
   		{
 			$(this).removeClass("rotation-loop");
+			$(this).children("a").children(".cta-image").css("margin-top", "0");
+  		}
+  	);
+
+  	$( ".no-touch .knows-link" ).hover(
+		function()
+		{
+			$( this ).children( ".knows-logo-image" ).animate({"top": "200px"}, 100);
+			
+			// var minColor = 0;
+			// var maxColor = 2;
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1000, 1500));
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(700, 2000));
+			// drawFloatingUpBalloon("hover-balloon-container", 228, 220, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
+
+			var total = randomInRange(2, 3);
+
+			var minColor = 0;
+			var maxColor = 2;
+
+			for(var i = 0; i<total; i++)
+			{
+				drawFloatingUpBalloon("hover-balloon-container", 228, 230, 0, 180, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 130), randomInRange(300, 900), -300, randomInRange(1400, 2500));
+			}
   		}
 
-  		
+  		,function()
+  		{
+  			$( this ).children( ".knows-logo-image" ).animate({"top": "192px"}, 300);
+  		}
+  	);
+
+  	$( ".no-touch .cat-link" ).hover(
+		function()
+		{
+			var total = randomInRange(2, 5);
+
+			var minColor = 0;
+			var maxColor = 2;
+
+			for(var i = 0; i<total; i++)
+			{
+				drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));	
+			}
+
+			
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3000, 3500));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(2700, 4000));
+			// drawFloatingUpBalloon("cat-balloons-svg", 418, 670, 0, 300, balloonColors[randomInRange(minColor, maxColor)], .3, randomInRange(0, 330), randomInRange(670, 1800), -(randomInRange(800, 1200)), randomInRange(3400, 4500));
+  		}
+
+  		,function()
+  		{
+
+  		}
   	);
 
 });
@@ -462,8 +550,3 @@ require([ "./vendor/raphael" ], function (Raphael)
 
 
 
-
-
-
-
-    

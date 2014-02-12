@@ -40,7 +40,7 @@ body
 	padding:0;
 	font-family:Arial,Helvetica,sans-serif;
 	background-color: #ec037b;
-	background-image: url("../../assets/images/bg_tile.jpg");
+	background-image: url("../../assets/images/bg_tile.png");
   	background-repeat: repeat-x;
 }
 
@@ -54,8 +54,6 @@ header, section, footer
 
 #site-wrapper
 {
-  /*background-image: url("../../assets/images/bg_tile.jpg");
-  background-repeat: repeat-x;*/
   margin:0 auto;
   min-width:1200px;
   min-height:768px;
@@ -97,6 +95,14 @@ header, section, footer
 	z-index:4;
 }
 
+
+#cat-balloons
+{
+	position:absolute;
+	left:50%;
+	z-index:2;
+}
+
 #main-content
 {
 	position:absolute;
@@ -131,14 +137,50 @@ header, section, footer
 	left:-520px;
 }
 
+#cat-hover-balloons
+{
+	position:relative;
+	left:-730px;
+}
+
+#cat-balloons-svg
+{
+	width:418px;
+	height:670px;
+}
+
+#cat-balloons-svg svg
+{
+	position:absolute !important;
+	top:0;
+	left:0;
+}
+
+
 #social-link-container
 {
 	position:absolute;
 	top:8px;
-	width:100%;
+	left:50%;
+	width:575px;
 	text-align:right;
-	min-width:1200px;
 	z-index:7;
+}
+
+
+#hover-balloon-container
+{
+	position:absolute;
+	width:228px;
+	height:320px;
+	display:inline;
+}
+
+#hover-balloon-container svg
+{
+	position:absolute !important;
+	top:0;
+	left:0;
 }
 
 #social-links
@@ -152,7 +194,7 @@ header, section, footer
 	position:relative;
 	display:inline;
 	width:24px;
-	margin-right: 16px;
+	margin-right: 10px;
 	float:right;
 }
 
@@ -167,6 +209,7 @@ header, section, footer
 {
 	position:absolute;
 	top:0px;
+	opacity: 0;
 	z-index: 0;
 }
 
@@ -174,7 +217,7 @@ header, section, footer
 #upper-links
 {
 	position:relative;
-	top:14px;
+	top:0;
 	width:1024px;
 	margin: 0 auto;
 }
@@ -183,7 +226,7 @@ header, section, footer
 #banner
 {
 	position:absolute;
-	top:0px;
+	top:14px;
 	left:0px;
 }
 
@@ -198,22 +241,31 @@ header, section, footer
 #tune-in
 {
 	position:absolute;
-	top:49px;
+	top:63px;
 	left:535px;
 }
 
 #cta
 {
 	position:absolute;
-	top:88px;
+	top:102px;
 	left:600px;
+	width:181px;
+	height:26px;
+	overflow: hidden;
+}
+
+#knows-logo-container
+{
+	position:absolute;
+	top:0px;
+	left:880px;
 }
 
 #knows-logo
 {
 	position:absolute;
-	top:178px;
-	left:880px;
+	top:192px;
 }
 
 #video-container
@@ -240,7 +292,14 @@ header, section, footer
 	position: absolute;
 	top:0px;
 	left:-50px;
+	visibility:hidden;
 }
+
+.no-touch #videoelement
+{
+	visibility:visible !important;
+}
+
 
 #lower-link-row
 {
@@ -416,6 +475,28 @@ header, section, footer
 	20% { transform: rotate(4deg); }
 	45% { transform: rotate(-4deg); }
 	0%,100% { transform: rotate(0deg); }
+}
+
+
+.lt-ie9 #balloon-container
+{
+	display:none;
+}
+
+
+.lt-ie9 #initial-play-button
+{
+	display:none;
+}
+
+.lt-ie9 .social_hover
+{
+	display:none;
+}
+
+.lt-ie9 #playerframe
+{
+	display:none;
 }
 
 
