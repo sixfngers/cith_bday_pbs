@@ -357,6 +357,15 @@ header, section, footer
   text-decoration:none;
 }
 
+.link-subtext
+{	
+  font-family: "pbs_kids_headlineregular", Arial, sans-serif;
+  font-size: 1em;;
+  color:#ffffff;
+  text-decoration:none;
+  margin-top:0;
+}
+
 
 #initial-play-button
 {
