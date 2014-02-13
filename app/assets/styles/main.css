@@ -423,7 +423,11 @@ header, section, footer
 	position:absolute;
 	width:1200px;
 	height:900px;
+	background-image:url('../../assets/images/blank.png');
+	background-repeat: no-repeat;
 }
+
+
 
 #intro-text
 {

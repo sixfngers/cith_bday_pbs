@@ -58,22 +58,22 @@ require([ "./vendor/raphael-min" ], function (Raphael)
     	var paper = Raphael(container, paperWidth, paperHeight);
 
     	var balloonString = paper.rect(51, 99, 1, 240); 
-    		balloonString.attr({fill: '#ffffff', stroke: '#ffffff', 'stroke-width': 0});
+    		balloonString.attr({fill: '#ffffff', stroke: '#ffffff', 'stroke-width': 0, "stroke-opacity":0});
 
     	var balloon = paper.circle(50, 50, 100);  
-    		balloon.attr({fill: balloonColor, stroke: balloonColor, 'stroke-width': 0});
+    		balloon.attr({fill: balloonColor, stroke: balloonColor, 'stroke-width': 0, "stroke-opacity":0});
 
 		var brokenPieceColor = balloonColor;
-			// brokenPieceColor = "#ff0000"
-    	var broken0 = paper.path("M-22.651-0.622c0,0,3.683-35.73,46.548-36.963L38.02,0.107L13.67-12.402l11.329,46.744L4.073,3.975L-22.651-0.622z").attr({fill:brokenPieceColor, "stroke-width": 0});
-    	var broken1 = paper.path("M101.873-27.759c0,0,15.336,11.599,15.031,28.255l-54.71,45.319L98.766-5.925L73.628-1.146l17.793-20.027L57.255-45.815C57.255-45.815,90.107-35.934,101.873-27.759z").attr({fill:brokenPieceColor, "stroke-width": 0});
-    	var broken2 = paper.path("M142.584,55.612c0,0-2.971,47.203-39.982,60.566L69.485,97.372l44.812-6.074l-13.277-37.5l16.947,20.471L142.584,55.612z").attr({fill:brokenPieceColor, "stroke-width": 0});
-    	var broken3 = paper.path("M29.938,140.556c-3.677-0.913-23.472-8.681-23.472-8.681l23.998-7.362l13.453-23.406l2.638,25.772L63.43,91.378l-1.054,35.24l40.877,2.102l-42.726,13.677l-7.12,5.521C53.357,148.711,42.167,143.596,29.938,140.556z").attr({fill:brokenPieceColor, "stroke-width": 0});
-    	var broken4 = paper.path("M-46.333,69.667c0,0,24.616,50.022,40.622,52.991l21.698-47.242c0,0-6.557,10.304-19.183,9.132c-12.627-1.171-25.935-3.243-32.066-8.58C-41.396,70.627-46.333,69.667-46.333,69.667z").attr({fill:brokenPieceColor, "stroke-width": 0});	
+			//brokenPieceColor = "#ff0000"
+    	var broken0 = paper.path("M-22.651-0.622c0,0,3.683-35.73,46.548-36.963L38.02,0.107L13.67-12.402l11.329,46.744L4.073,3.975L-22.651-0.622z").attr({fill:brokenPieceColor, stroke:brokenPieceColor, "stroke-opacity":0, "stroke-width": 0, "stroke-opacity":0});
+    	var broken1 = paper.path("M101.873-27.759c0,0,15.336,11.599,15.031,28.255l-54.71,45.319L98.766-5.925L73.628-1.146l17.793-20.027L57.255-45.815C57.255-45.815,90.107-35.934,101.873-27.759z").attr({fill:brokenPieceColor, stroke:brokenPieceColor, "stroke-width": 0, "stroke-opacity":0});
+    	var broken2 = paper.path("M142.584,55.612c0,0-2.971,47.203-39.982,60.566L69.485,97.372l44.812-6.074l-13.277-37.5l16.947,20.471L142.584,55.612z").attr({fill:brokenPieceColor, stroke:brokenPieceColor, "stroke-width": 0, "stroke-opacity":0});
+    	var broken3 = paper.path("M29.938,140.556c-3.677-0.913-23.472-8.681-23.472-8.681l23.998-7.362l13.453-23.406l2.638,25.772L63.43,91.378l-1.054,35.24l40.877,2.102l-42.726,13.677l-7.12,5.521C53.357,148.711,42.167,143.596,29.938,140.556z").attr({fill:brokenPieceColor, stroke:brokenPieceColor, "stroke-width": 0, "stroke-opacity":0});
+    	var broken4 = paper.path("M-46.333,69.667c0,0,24.616,50.022,40.622,52.991l21.698-47.242c0,0-6.557,10.304-19.183,9.132c-12.627-1.171-25.935-3.243-32.066-8.58C-41.396,70.627-46.333,69.667-46.333,69.667z").attr({fill:brokenPieceColor, stroke:brokenPieceColor, "stroke-width": 0, "stroke-opacity":0});	
 
 
     	var balloonKnot = paper.path("M 51 140 l -7 19 l 14 2 z"); 
-    		balloonKnot.attr({fill: balloonColor, stroke: balloonColor, 'stroke-width': 0});  
+    		balloonKnot.attr({fill: balloonColor, stroke: balloonColor, stroke:balloonColor,'stroke-width': 0, "stroke-opacity":0});  
 
     	var brokenBalloonPieces = paper.set();
     		brokenBalloonPieces.push(broken0);
