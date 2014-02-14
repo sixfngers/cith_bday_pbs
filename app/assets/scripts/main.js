@@ -456,7 +456,7 @@ require([ "./vendor/raphael-min" ], function (Raphael)
 		{
 			var item = $(this);
 			item.children( ".lower-link-text" ).children("a").css( "color", "#ec037b" );
-			item.children( ".link-subtext" ).css( "color", "#ec037b" );
+			item.children( ".link-subtext" ).children("a").css( "color", "#ec037b" );
 			item.children( ".left-link-arrow" ).animate({"opacity":"1", "margin-left": "30px", "margin-right": "0px"}, 300);
 			item.children( ".right-link-arrow" ).fadeTo( 0, 0 );
 
@@ -466,7 +466,7 @@ require([ "./vendor/raphael-min" ], function (Raphael)
   		{
 			var item = $( this );
   			item.children( ".lower-link-text" ).children("a").css( "color", "#ffffff" );
-  			item.children( ".link-subtext" ).css( "color", "#ffffff" );
+  			item.children( ".link-subtext" ).children("a").css( "color", "#ffffff" );
   			item.children( ".left-link-arrow" ).animate({"opacity":"0", "margin-left": "0px", "margin-right": "8px"}, 300);
 			item.children( ".right-link-arrow" ).fadeTo( 300, 1 );
   		}
